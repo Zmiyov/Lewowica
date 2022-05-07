@@ -99,7 +99,9 @@
                     <tabBarItem key="tabBarItem" title="Add word" image="plus.rectangle.on.folder.fill" catalog="system" id="ob0-8R-037"/>
                     <connections>
                         <outlet property="addTranslate" destination="eag-qv-BFi" id="d5e-NP-Bgo"/>
+                        <outlet property="addTranslateStatusLabel" destination="gOk-06-vNe" id="GwY-lP-X6s"/>
                         <outlet property="addWord" destination="XRr-lN-wAQ" id="PQ5-cw-uit"/>
+                        <outlet property="addWordStatusLabel" destination="QLm-xI-jdu" id="rwr-ue-XgW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -13,25 +13,39 @@ class ViewController: UIViewController {
 
     @IBOutlet var addWord: UITextField!
     @IBOutlet var addTranslate: UITextField!
+    @IBOutlet var addWordStatusLabel: UILabel!
+    @IBOutlet var addTranslateStatusLabel: UILabel!
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        addWordStatusLabel.text = "⬅️"
+        addTranslateStatusLabel.text = "⬅️"
+        
     }
 
     func addWords() {
-        if let enteredWord = addWord.text {
-            if let enteredTranslate = addTranslate.text {
-                words.updateValue(enteredTranslate, forKey: enteredWord)
-            }
-        }
         
+        if addWord.text != "" {
+            if let enteredWord = addWord.text{
+                addWordStatusLabel.text = "✅"
+                if addTranslate.text != "" {
+                    if let enteredTranslate = addTranslate.text{
+                        addTranslateStatusLabel.text = "✅"
+                        words.updateValue(enteredTranslate, forKey: enteredWord)
+                        addWord.text?.removeAll()
+                        addTranslate.text?.removeAll()
+                    }
+                } else {return}
+            }
+        } else {return}
     }
 
     @IBAction func addButtonTapped(_ sender: Any) {
         addWords()
-        addWord.text?.removeAll()
-        addTranslate.text?.removeAll()
+
         print(words)
     }
 }
