@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController, UITabBarControllerDelegate {
     
     var words: [String: String] = [:]
 
@@ -21,9 +21,18 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.delegate = self
         addWordStatusLabel.text = "⬅️"
         addTranslateStatusLabel.text = "⬅️"
         
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        if viewController.isKind(of: MainViewController.self as AnyClass) {
+            let viewController = tabBarController.viewControllers?[1] as! LearnViewController
+            viewController.wordsInCard = self.words
+        }
+        return true
     }
 
     func addWords() {

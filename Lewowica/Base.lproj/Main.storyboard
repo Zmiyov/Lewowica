@@ -11,7 +11,7 @@
         <!--Add word-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Lewowica" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Lewowica" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -111,7 +111,7 @@
         <!--Settings-->
         <scene sceneID="u5P-BY-bLf">
             <objects>
-                <viewController id="osP-aA-ZTt" sceneMemberID="viewController">
+                <viewController id="osP-aA-ZTt" customClass="SettingsViewController" customModule="Lewowica" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vtB-KG-wmc">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -127,30 +127,52 @@
         <!--Learn-->
         <scene sceneID="AHh-u1-RL8">
             <objects>
-                <viewController id="TwO-7e-v6K" sceneMemberID="viewController">
+                <viewController id="TwO-7e-v6K" customClass="LearnViewController" customModule="Lewowica" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w5F-8c-ZDQ">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwJ-5d-31n">
-                                <rect key="frame" x="155" y="401" width="80" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SG1-BG-buM">
+                                <rect key="frame" x="161.66666666666666" y="406.66666666666669" width="67" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="buttonCardTapped:" destination="TwO-7e-v6K" eventType="touchUpInside" id="uBW-VG-s9q"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXT-Gq-hQ7">
+                                <rect key="frame" x="115" y="529" width="160" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="fWq-LR-wJJ" appends="YES" id="7dE-Rm-LhU"/>
+                                </connections>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Q2G-Rf-2NE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vwJ-5d-31n" firstAttribute="centerX" secondItem="w5F-8c-ZDQ" secondAttribute="centerX" id="9at-NP-8nh"/>
-                            <constraint firstItem="vwJ-5d-31n" firstAttribute="centerY" secondItem="w5F-8c-ZDQ" secondAttribute="centerY" id="MbQ-YF-qcl"/>
+                            <constraint firstItem="SG1-BG-buM" firstAttribute="centerX" secondItem="w5F-8c-ZDQ" secondAttribute="centerX" id="EIF-3G-QqC"/>
+                            <constraint firstItem="SG1-BG-buM" firstAttribute="centerY" secondItem="w5F-8c-ZDQ" secondAttribute="centerY" id="opf-kg-Bjx"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Learn" image="puzzlepiece.extension" catalog="system" id="MEP-ee-h0N"/>
+                    <connections>
+                        <outlet property="buttonCardText" destination="SG1-BG-buM" id="MRX-AU-X5A"/>
+                        <outlet property="cardTextLabel" destination="SXT-Gq-hQ7" id="rud-rs-5RP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tzT-oi-0BV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="fWq-LR-wJJ">
+                    <connections>
+                        <action selector="tapCardTextLabel:" destination="TwO-7e-v6K" id="cYq-p7-qGl"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="937" y="68"/>
+            <point key="canvasLocation" x="936.92307692307691" y="67.535545023696685"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="NYQ-MA-xy4">
